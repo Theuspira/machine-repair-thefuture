@@ -1,0 +1,991 @@
+/* =========================================================
+   PAGLIS — STYLE.CSS ORGANIZADO
+
+   Estrutura:
+   01. Reset e base
+   02. Intro / tela ENTER
+   03. Home / estados e header
+   04. Hero / banner principal
+   05. Featured Works / carrossel
+========================================================= */
+
+/* =========================================================
+   01. RESET E BASE
+========================================================= */
+
+/* Remove margens/paddings padrão e facilita o cálculo de tamanho */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Rolagem suave para links internos, como o botão "Ver coleção" */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Configurações gerais do site */
+body {
+  background: #050505;
+  color: #e8e3d8;
+  font-family: Georgia, serif;
+}
+
+/* =========================================================
+   02. INTRO / TELA ENTER
+========================================================= */
+
+/* Tela inicial que ocupa 100% da altura do navegador */
+.intro {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at center, rgba(90, 15, 22, 0.18), transparent 35%),
+    linear-gradient(to bottom, #0a0a0a, #000);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Borda interna decorativa da tela de entrada */
+.intro::before {
+  content: "";
+  position: absolute;
+  inset: 40px;
+  border: 1px solid rgba(232, 227, 216, 0.12);
+  pointer-events: none;
+}
+
+/* Conteúdo central da intro */
+.intro__content {
+  text-align: center;
+  z-index: 2;
+}
+
+/* Texto pequeno acima do logo */
+.intro__eyebrow {
+  font-size: 11px;
+  letter-spacing: 6px;
+  margin-bottom: 90px;
+  color: rgba(232, 227, 216, 0.65);
+}
+
+/* Logo / nome da marca */
+.intro__logo {
+  font-size: clamp(64px, 14vw, 180px);
+  letter-spacing: 10px;
+  line-height: 0.8;
+  color: #f2eee4;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+}
+
+/* Frase abaixo do logo */
+.intro__subtitle {
+  margin-top: 32px;
+  font-size: 13px;
+  letter-spacing: 10px;
+  color: rgba(232, 227, 216, 0.8);
+}
+
+/* Botão ENTER */
+.intro__button {
+  margin-top: 80px;
+  background: transparent;
+  color: #e8e3d8;
+  border: none;
+  font-family: Georgia, serif;
+  font-size: 26px;
+  letter-spacing: 6px;
+  cursor: pointer;
+  position: relative;
+  padding: 12px 30px;
+}
+
+/* Linhas laterais do botão ENTER */
+.intro__button::before,
+.intro__button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 70px;
+  height: 1px;
+  background: rgba(232, 227, 216, 0.4);
+}
+
+.intro__button::before {
+  right: 100%;
+}
+
+.intro__button::after {
+  left: 100%;
+}
+
+/* Hover do botão ENTER */
+.intro__button:hover {
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Animação de saída da intro */
+.intro.fade-out {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+/* =========================================================
+   03. HOME / ESTADOS E HEADER
+========================================================= */
+
+/* Home começa escondida e aparece após clicar em ENTER */
+.home {
+  display: none;
+  opacity: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.2), #050505),
+    radial-gradient(circle at 80% 20%, rgba(90, 15, 22, 0.18), transparent 35%),
+    #050505;
+  color: #e8e3d8;
+}
+
+/* Classe adicionada via JavaScript para mostrar a Home */
+.home.is-visible {
+  display: block;
+  opacity: 1;
+  transition: opacity 1.2s ease;
+}
+
+/* Cabeçalho da home */
+.home__header {
+  width: calc(100% - 80px);
+  margin: 0 auto;
+  padding: 32px 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid rgba(232, 227, 216, 0.12);
+}
+
+/* Logo menor no topo */
+.home__brand {
+  font-size: 28px;
+  letter-spacing: 6px;
+  font-weight: normal;
+}
+
+/* Menu de navegação */
+.home__nav {
+  display: flex;
+  gap: 36px;
+}
+
+/* Links do menu */
+.home__nav a {
+  color: rgba(232, 227, 216, 0.75);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Hover dos links */
+.home__nav a:hover {
+  color: #ffffff;
+}
+
+/* =========================================================
+   04. HERO / BANNER PRINCIPAL
+========================================================= */
+
+/* Banner principal em duas colunas */
+.home__hero {
+  width: 100%;
+  min-height: calc(100vh - 97px);
+
+  display: grid;
+  grid-template-columns: 44% 56%;
+
+  border-bottom: 1px solid rgba(232, 227, 216, 0.12);
+}
+
+/* Texto do banner */
+.home__heroText {
+  padding: 110px 0 80px 40px;
+  max-width: 620px;
+}
+
+/* Texto pequeno acima do título */
+.home__eyebrow {
+  font-size: 12px;
+  letter-spacing: 7px;
+  color: rgba(232, 227, 216, 0.65);
+  margin-bottom: 32px;
+}
+
+/* Título grande do banner */
+.home__title {
+  font-size: clamp(48px, 5.8vw, 96px);
+  line-height: 0.95;
+  font-weight: normal;
+  margin-bottom: 28px;
+}
+
+/* Linha decorativa abaixo do título */
+.home__divider {
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: rgba(232, 227, 216, 0.65);
+  margin-bottom: 34px;
+}
+
+/* Descrição do banner */
+.home__description {
+  max-width: 470px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(232, 227, 216, 0.68);
+  margin-bottom: 42px;
+}
+
+/* Botão/link do banner */
+.home__button {
+  display: inline-block;
+  color: #e8e3d8;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(232, 227, 216, 0.5);
+  padding-bottom: 8px;
+}
+
+/* Hover do botão/link */
+.home__button:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Área direita do banner */
+.home__bannerArt {
+  position: relative;
+  min-height: calc(100vh - 97px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(circle at center, rgba(232, 227, 216, 0.08), transparent 34%),
+    linear-gradient(90deg, transparent, rgba(90, 15, 22, 0.08)),
+    #050505;
+}
+
+/* Imagem/arte principal do banner */
+.home__bannerImage {
+  width: min(520px, 72%);
+  height: 600px;
+
+  border: 1px solid rgba(199, 150, 82, 0.35);
+  background:
+    radial-gradient(circle at center, rgba(232, 227, 216, 0.16), transparent 34%),
+    linear-gradient(145deg, #111, #050505 70%, #160407);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+/* Cantos decorativos da imagem principal */
+.home__bannerImage::before,
+.home__bannerImage::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+}
+
+.home__bannerImage::before {
+  top: -10px;
+  left: -10px;
+  border-top: 1px solid rgba(199, 150, 82, 0.6);
+  border-left: 1px solid rgba(199, 150, 82, 0.6);
+}
+
+.home__bannerImage::after {
+  right: -10px;
+  bottom: -10px;
+  border-right: 1px solid rgba(199, 150, 82, 0.6);
+  border-bottom: 1px solid rgba(199, 150, 82, 0.6);
+}
+
+/* Texto temporário dentro do placeholder da arte */
+.home__bannerImage span {
+  writing-mode: vertical-rl;
+  letter-spacing: 8px;
+  font-size: 11px;
+  color: rgba(232, 227, 216, 0.3);
+}
+
+/* Texto vertical lateral */
+.home__verticalText {
+  position: absolute;
+  right: 90px;
+  top: 43%;
+
+  writing-mode: vertical-rl;
+  letter-spacing: 5px;
+  font-size: 11px;
+  color: rgba(232, 227, 216, 0.62);
+}
+
+/* =========================================================
+   05. FEATURED WORKS / CARROSSEL
+========================================================= */
+
+/* Seção principal do carrossel */
+.featured {
+  width: calc(100% - 80px);
+  margin: 0 auto;
+  padding: 64px 0 120px;
+
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 72px;
+
+  overflow: hidden;
+}
+
+/* Texto lateral da seção */
+.featured__intro {
+  padding-top: 42px;
+}
+
+/* Texto pequeno da seção */
+.featured__eyebrow {
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: rgba(232, 227, 216, 0.62);
+  margin-bottom: 22px;
+}
+
+/* Título da seção */
+.featured__title {
+  font-size: 42px;
+  font-weight: normal;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+/* Linha decorativa abaixo do título */
+.featured__title::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: rgba(232, 227, 216, 0.6);
+  margin-top: 22px;
+}
+
+/* Descrição da seção */
+.featured__description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(232, 227, 216, 0.62);
+  margin-top: 30px;
+}
+
+/* Área geral do carrossel */
+.featured__carousel {
+  position: relative;
+  min-height: 460px;
+  padding-left: 40px;
+  overflow: visible;
+}
+
+/* Card base */
+.carousel-card {
+  border: 1px solid rgba(232, 227, 216, 0.16);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 65% 50%, rgba(90, 15, 22, 0.24), transparent 34%),
+    linear-gradient(135deg, #101010, #050505 70%);
+  overflow: hidden;
+}
+
+/* Card principal: fica na frente da prévia */
+.carousel-card--main {
+  width: 720px;
+  height: 430px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Card de prévia: fica parcialmente escondido atrás do card principal */
+/* Card de prévia atrás, aparecendo cortado à direita */
+.carousel-card--preview {
+  width: 360px;
+  height: 390px;
+
+  position: absolute;
+  top: 20px;
+  left: 660px;
+
+  z-index: 1;
+
+  opacity: 0.42;
+  transform: scale(0.96);
+  filter: blur(0.4px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagem da prévia */
+.carousel-card__previewImage {
+  width: 480px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* Texto do card principal */
+.carousel-card__text {
+  position: absolute;
+  left: 60px;
+  top: 70px;
+  z-index: 4;
+  max-width: 220px;
+}
+
+/* Número */
+.carousel-card__number {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: rgba(232, 227, 216, 0.75);
+}
+
+/* Nome da peça */
+.carousel-card__text h3 {
+  font-size: 38px;
+  font-weight: normal;
+  line-height: 1;
+  margin: 24px 0 12px;
+}
+
+/* Tipo da peça */
+.carousel-card__text p {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(232, 227, 216, 0.58);
+  margin-bottom: 44px;
+}
+
+/* Preço */
+.carousel-card__text strong {
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+}
+
+/* Link */
+.carousel-card__text a {
+  color: #e8e3d8;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 3px;
+  border-bottom: 1px solid rgba(232, 227, 216, 0.5);
+  padding-bottom: 7px;
+}
+
+/* Área da imagem do produto */
+.carousel-card__image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Sombra para o texto ficar legível sobre a imagem */
+.carousel-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(90deg, rgba(5, 5, 5, 0.9) 0%, rgba(5, 5, 5, 0.55) 35%, transparent 72%);
+  pointer-events: none;
+}
+
+/* Halo vermelho no fundo */
+.carousel-card__glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  right: -80px;
+  top: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(90, 15, 22, 0.35), transparent 70%);
+  z-index: 1;
+}
+
+/* Imagem do produto principal */
+.carousel-card__product {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 72%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 2;
+}
+
+/* Imagem do produto na prévia */
+.carousel-card__previewImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.75;
+}
+
+/* Texto da prévia */
+.carousel-card__previewText {
+  position: relative;
+  z-index: 2;
+  padding: 70px 36px;
+}
+
+.carousel-card__previewText span {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: rgba(232, 227, 216, 0.45);
+}
+
+.carousel-card__previewText h3 {
+  font-size: 32px;
+  font-weight: normal;
+  line-height: 1;
+  margin-top: 22px;
+}
+
+/* Contador */
+.carousel-card__counter {
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  z-index: 4;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: rgba(232, 227, 216, 0.72);
+}
+
+/* Setas do carrossel */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  color: rgba(232, 227, 216, 0.35);
+  font-size: 34px;
+  cursor: pointer;
+  z-index: 5;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Seta anterior dentro do card principal */
+.carousel-arrow--prev {
+  left: 18px;
+}
+
+/* Seta próxima dentro do card principal */
+.carousel-arrow--next {
+  right: 18px;
+}
+
+/* Hover das setas */
+.carousel-arrow:hover {
+  color: #e8e3d8;
+  text-shadow: 0 0 18px rgba(232, 227, 216, 0.35);
+}
+
+/* =========================
+   ANIMAÇÃO DO CARROSSEL
+========================== */
+
+.carousel-card__text,
+.carousel-card__product,
+.carousel-card__previewImage {
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
+
+.carousel-card--main.is-changing .carousel-card__text,
+.carousel-card--main.is-changing .carousel-card__product {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.carousel-card--preview.is-changing .carousel-card__previewImage {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+
+
+
+/* =========================
+   RESPONSIVO / TABLET
+========================== */
+
+@media (max-width: 1024px) {
+  .home__hero {
+    grid-template-columns: 1fr;
+  }
+
+  .home__heroText {
+    padding: 80px 40px 60px;
+  }
+
+  .home__bannerArt {
+    min-height: 640px;
+  }
+
+  .featured {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .featured__carousel {
+    padding-left: 0;
+  }
+}
+
+/* =========================
+   RESPONSIVO / MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .intro::before {
+    inset: 20px;
+  }
+
+  .intro__eyebrow {
+    margin-bottom: 60px;
+  }
+
+  .intro__logo {
+    font-size: 58px;
+    letter-spacing: 6px;
+  }
+
+  .intro__subtitle {
+    font-size: 11px;
+    letter-spacing: 6px;
+  }
+
+  .intro__button {
+    font-size: 20px;
+    margin-top: 60px;
+  }
+
+  .intro__button::before,
+  .intro__button::after {
+    width: 36px;
+  }
+
+  .home__header {
+    width: calc(100% - 32px);
+    padding: 24px 0;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .home__nav {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .home__heroText {
+    padding: 70px 24px 50px;
+  }
+
+  .home__title {
+    font-size: 54px;
+  }
+
+  .home__description {
+    font-size: 15px;
+  }
+
+  .home__bannerArt {
+    min-height: 520px;
+  }
+
+  .home__bannerImage {
+    width: 78%;
+    height: 430px;
+  }
+
+  .home__verticalText {
+    right: 28px;
+  }
+
+  .featured {
+    width: calc(100% - 32px);
+    padding: 70px 0 90px;
+  }
+
+  .featured__title {
+    font-size: 44px;
+  }
+
+  .featured__carousel {
+    min-height: 520px;
+    padding-left: 0;
+  }
+
+  .carousel-card--main {
+    width: 100%;
+    height: 520px;
+  }
+
+  .carousel-card__text {
+    left: 28px;
+    top: 42px;
+  }
+
+  .carousel-card__product {
+    right: -60px;
+    bottom: -10px;
+    width: 420px;
+    max-width: none;
+  }
+
+  .carousel-card--preview {
+    display: none;
+  }
+
+  .carousel-arrow--prev {
+    left: 14px;
+  }
+
+  .carousel-arrow--next {
+    right: 14px;
+  }
+.products {
+  width: calc(100% - 32px);
+  padding: 70px 0 90px;
+}
+
+.products__header {
+  flex-direction: column;
+  align-items: start;
+}
+
+.products__grid {
+  grid-template-columns: 1fr;
+}
+
+.product-card__image {
+  height: 420px;
+}
+  
+}
+
+
+/* =========================
+   DOTS DO CARROSSEL
+========================== */
+
+.carousel-dots {
+  display: none;
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1px solid rgba(232, 227, 216, 0.55);
+    background: transparent;
+  }
+
+  .carousel-dot.is-active {
+    background: #e8e3d8;
+  }
+  /* Esconde as setas no mobile */
+.carousel-arrow {
+  display: none;
+}
+
+/* Aproxima as bolinhas do card */
+.carousel-dots {
+  margin-top: 8px;
+}
+
+}
+
+
+
+/* =========================
+   NEW ARRIVALS / PRODUTOS
+========================== */
+
+.products {
+  width: calc(100% - 80px);
+  margin: 0 auto;
+  padding: 100px 0 120px;
+  border-top: 1px solid rgba(232, 227, 216, 0.12);
+}
+
+.products__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 42px;
+}
+
+.products__eyebrow {
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: rgba(232, 227, 216, 0.55);
+  margin-bottom: 18px;
+}
+
+.products__title {
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: normal;
+  line-height: 1;
+}
+
+.products__viewAll {
+  color: #e8e3d8;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 3px;
+  border: 1px solid rgba(232, 227, 216, 0.28);
+  padding: 18px 28px;
+}
+
+.products__viewAll:hover {
+  border-color: #e8e3d8;
+}
+
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+.product-card {
+  border: 1px solid rgba(232, 227, 216, 0.13);
+  background: linear-gradient(145deg, #0d0d0d, #050505);
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(232, 227, 216, 0.38);
+}
+
+.product-card__image {
+  height: 340px;
+  overflow: hidden;
+  background: #090909;
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card__info {
+  padding: 24px;
+}
+
+.product-card__info p {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 227, 216, 0.5);
+  margin-bottom: 10px;
+}
+
+.product-card__info h3 {
+  font-size: 22px;
+  font-weight: normal;
+  margin-bottom: 14px;
+}
+
+.product-card__info strong {
+  font-size: 14px;
+  font-weight: normal;
+  color: rgba(232, 227, 216, 0.85);
+}
+
+/* =========================
+   AJUSTE FINAL MOBILE / PRODUTOS
+   Mantém os produtos responsivos depois do CSS base.
+========================== */
+
+@media (max-width: 768px) {
+  .products {
+    width: calc(100% - 32px);
+    padding: 70px 0 90px;
+  }
+
+  .products__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .products__viewAll {
+    width: 100%;
+    text-align: center;
+  }
+
+  .products__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card__image {
+    height: 420px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

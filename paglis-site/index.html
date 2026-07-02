@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Configurações básicas da página -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Título que aparece na aba do navegador -->
+  <title>Paglis</title>
+
+  <!-- Arquivo de estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =========================
+       TELA DE ENTRADA
+  ========================== -->
+  <main class="intro" id="introScreen">
+    <section class="intro__content">
+      <p class="intro__eyebrow">ART IS ETERNAL</p>
+
+      <h1 class="intro__logo">PAGLICO</h1>
+
+      <p class="intro__subtitle">WEAR THE ART</p>
+
+      <button class="intro__button" id="enterButton">
+        ENTER
+      </button>
+    </section>
+  </main>
+
+  <!-- =========================
+       HOME DO SITE
+       Ela começa escondida e aparece após clicar em ENTER
+  ========================== -->
+  <main class="home" id="homeScreen">
+
+    <!-- Cabeçalho / menu -->
+    <header class="home__header">
+      <h2 class="home__brand">PAGLICO</h2>
+
+      <nav class="home__nav">
+        <a href="#featuredWorks">Coleção</a>
+        <a href="#products">Produtos</a>
+        <a href="#">Sobre</a>
+        <a href="#">Processo</a>
+        <a href="#">Contato</a>
+      </nav>
+    </header>
+
+    <!-- =========================
+         HERO / BANNER PRINCIPAL
+    ========================== -->
+    <section class="home__hero">
+
+      <!-- Texto do banner -->
+      <div class="home__heroText">
+        <p class="home__eyebrow">BLACKWORK APPAREL</p>
+
+        <h1 class="home__title">
+          Arte autoral<br />
+          vestida de propósito.
+        </h1>
+
+        <span class="home__divider"></span>
+
+        <p class="home__description">
+          Estampas criadas a partir de ilustrações originais,
+          símbolos sombrios e composições inspiradas
+          no universo da tatuagem blackwork.
+        </p>
+
+        <a href="#featuredWorks" class="home__button">Ver coleção →</a>
+      </div>
+
+      <!-- Arte grande do banner -->
+      <div class="home__bannerArt">
+        <div class="home__bannerImage">
+          <span>PAGLIS ARTWORK</span>
+        </div>
+
+        <p class="home__verticalText">
+          ORIGINAL STUDY<br />
+          MMXXIV
+        </p>
+      </div>
+
+    </section>
+
+    <!-- =========================
+         FEATURED WORKS / CARROSSEL
+    ========================== -->
+    <section class="featured" id="featuredWorks">
+
+      <!-- Texto lateral da seção -->
+      <div class="featured__intro">
+        <p class="featured__eyebrow">DROP 01</p>
+
+        <h2 class="featured__title">Featured Works</h2>
+
+        <p class="featured__description">
+          Cada peça carrega símbolos, histórias e intenções.
+          Mais que roupa, é manifestação.
+        </p>
+      </div>
+
+<!-- Área do carrossel -->
+<div class="featured__carousel">
+
+  <!-- Produto principal -->
+  <article class="carousel-card carousel-card--main">
+
+    <button class="carousel-arrow carousel-arrow--prev" id="prevProduct" aria-label="Produto anterior">←</button>
+    <button class="carousel-arrow carousel-arrow--next" id="nextProduct" aria-label="Próximo produto">→</button>
+
+    <div class="carousel-card__text">
+      <span class="carousel-card__number">01</span>
+
+      <h3 class="carousel-card__name">Saint Form</h3>
+
+      <p class="carousel-card__type">Blackwork Tee</p>
+
+      <strong class="carousel-card__price">R$169,90</strong>
+
+      <a href="#">Ver peça →</a>
+    </div>
+
+    <div class="carousel-card__image">
+      <div class="carousel-card__glow"></div>
+
+      <img
+        src="assets/products/camiseta-01.png"
+        alt="Camiseta Saint Form"
+        class="carousel-card__product"
+      />
+    </div>
+
+    <span class="carousel-card__counter">01 / 05</span>
+  </article>
+
+<!-- Próximo produto aparecendo parcialmente à direita -->
+<article class="carousel-card carousel-card--preview">
+  <img
+    src="assets/products/camiseta-02.png"
+    alt="Prévia da próxima peça"
+    class="carousel-card__previewImage"
+  />
+</article>
+</div>
+
+      <!-- Indicadores do carrossel no mobile -->
+      <div class="carousel-dots" id="carouselDots"></div>
+
+    </section>
+
+    <!-- =========================
+         NEW ARRIVALS / PRODUTOS
+    ========================== -->
+    <section class="products" id="products">
+
+      <div class="products__header">
+        <div>
+          <p class="products__eyebrow">NEW ARRIVALS</p>
+          <h2 class="products__title">Novas Peças</h2>
+        </div>
+
+        <a href="#" class="products__viewAll">Ver toda coleção →</a>
+      </div>
+
+      <div class="products__grid">
+
+        <article class="product-card">
+          <div class="product-card__image">
+            <img src="assets/products/camiseta-01.png" alt="Saint Form">
+          </div>
+
+          <div class="product-card__info">
+            <p>Camiseta</p>
+            <h3>Saint Form</h3>
+            <strong>R$169,90</strong>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__image">
+            <img src="assets/products/camiseta-02.png" alt="Ritual Shape">
+          </div>
+
+          <div class="product-card__info">
+            <p>Camiseta</p>
+            <h3>Ritual Shape</h3>
+            <strong>R$179,90</strong>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__image">
+            <img src="assets/products/camiseta-03.png" alt="Dark Relic">
+          </div>
+
+          <div class="product-card__info">
+            <p>Camiseta</p>
+            <h3>Dark Relic</h3>
+            <strong>R$189,90</strong>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__image">
+            <img src="assets/products/camiseta-01.png" alt="Night Vessel">
+          </div>
+
+          <div class="product-card__info">
+            <p>Camiseta</p>
+            <h3>Night Vessel</h3>
+            <strong>R$169,90</strong>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
